@@ -19,4 +19,8 @@ RUN mkdir -p /usr/local/tomcat/webapps/ROOT/WEB-INF/classes && \
 COPY index.jsp /usr/local/tomcat/webapps/ROOT/
 COPY WEB-INF/web.xml /usr/local/tomcat/webapps/ROOT/WEB-INF/
 
+# Copy MySQL JDBC driver to Tomcat's lib folder
+COPY WEB-INF/lib/mysql-connector-j-8.4.0.jar /usr/local/tomcat/lib/
+
+
 EXPOSE 8080
