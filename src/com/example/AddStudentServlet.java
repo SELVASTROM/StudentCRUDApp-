@@ -19,7 +19,7 @@ public class AddStudentServlet extends HttpServlet {
             stmt.setString(2, email);
             stmt.setString(3, phone);
             stmt.executeUpdate();
-            response.sendRedirect("view-students.jsp");
+            response.sendRedirect("index.jsp");
         }  catch (Exception e) {
     e.printStackTrace(); // shows full error in Tomcat console/log
     response.setContentType("text/html");

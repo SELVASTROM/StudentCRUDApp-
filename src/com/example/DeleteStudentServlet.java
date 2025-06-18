@@ -19,7 +19,7 @@ public class DeleteStudentServlet extends HttpServlet {
             PreparedStatement stmt = conn.prepareStatement("DELETE FROM students WHERE id=?");
             stmt.setInt(1, id);
             stmt.executeUpdate();
-            response.sendRedirect("ViewStudentsServlet");
+            response.sendRedirect("index.jsp");
 
         } catch (Exception e) {
             e.printStackTrace();

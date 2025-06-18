@@ -153,13 +153,13 @@
       <input type="email" name="email" value="<%= email %>" required>
       <input type="text" name="phone" value="<%= phone %>" required>
       <input type="submit" value="Update">
-      <a href="student-crud.jsp" class="btn">Cancel</a>
+      <a href="index.jsp" class="btn">Cancel</a>
     </form>
     <% } else { %>
     <div class="student">
       <div><strong><%= name %></strong> | <%= email %> | <%= phone %></div>
       <div>
-        <a href="student-crud.jsp?editId=<%= id %>">Edit</a>
+        <a href="index.jsp?editId=<%= id %>">Edit</a>
         <a href="DeleteStudentServlet?id=<%= id %>" onclick="return confirm('Are you sure?')">Delete</a>
       </div>
     </div>

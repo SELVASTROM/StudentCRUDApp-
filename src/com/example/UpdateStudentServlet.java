@@ -29,7 +29,7 @@ public class UpdateStudentServlet extends HttpServlet {
             stmt.setInt(4, id);
             stmt.executeUpdate();
 
-            response.sendRedirect("view-students.jsp");
+            response.sendRedirect("index.jsp");
 
         } catch (Exception e) {
             e.printStackTrace();
