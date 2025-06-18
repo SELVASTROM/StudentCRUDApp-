@@ -1,6 +1,6 @@
 # Student CRUD Web Application
 
-A simple full-stack Java web application for managing student records (Add, View, Update, Delete) using **Servlets, JSP, JDBC**, and **MySQL**. Deployed with **Docker** on **Render** and database hosted on **Clever Cloud**.
+A simple full-stack Java web application for managing student records from my Day28 Full Stack Developer plan  (Add, View, Update, Delete) using **Servlets, JSP, JDBC**, and **MySQL**. Deployed with **Docker** on **Render** and database hosted on **Clever Cloud**.
 
 ## 🌐 Live Demo
 
