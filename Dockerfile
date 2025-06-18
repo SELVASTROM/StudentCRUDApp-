@@ -1,8 +1,16 @@
 FROM tomcat:9.0-jdk17-openjdk
 
-# Clear default apps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy all files and folders in the repo to the webapps/StudentCRUDApp folder
-COPY . /usr/local/tomcat/webapps/ROOT
+# Build servlets
+WORKDIR /usr/src/app
+COPY src/ src/
+RUN mkdir -p /usr/src/app/WEB-INF/classes
+RUN javac -cp /usr/local/tomcat/lib/servlet-api.jar -d WEB-INF/classes src/com/example/*.java
 
+# Copy web files
+COPY student-crud/ /usr/local/tomcat/webapps/ROOT/
+COPY view-students/ /usr/local/tomcat/webapps/ROOT/
+COPY WEB-INF/web.xml /usr/local/tomcat/webapps/ROOT/WEB-INF/
+
+EXPOSE 8080
