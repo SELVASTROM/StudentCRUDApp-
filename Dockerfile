@@ -1,26 +1,19 @@
-# Use Tomcat 9 with JDK 17
 FROM tomcat:9.0-jdk17-openjdk
 
-# Clear default webapps
+# Clear Tomcat default apps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Set working directory for source code
+# Set working directory
 WORKDIR /usr/src/app
 
-# Copy Java source files into container
+# Copy and compile Java source
 COPY src/ src/
+RUN mkdir -p WEB-INF/classes && \
+    javac -cp /usr/local/tomcat/lib/servlet-api.jar -d WEB-INF/classes src/com/example/*.java
 
-# Create output directory for compiled classes
-RUN mkdir -p WEB-INF/classes
-
-# Compile the servlet Java files
-RUN javac -cp /usr/local/tomcat/lib/servlet-api.jar -d WEB-INF/classes src/com/example/*.java
-
-# Create final app structure in Tomcat webapps
-RUN mkdir -p /usr/local/tomcat/webapps/ROOT/WEB-INF/classes
-
-# Copy compiled classes
-RUN cp -r WEB-INF/classes/* /usr/local/tomcat/webapps/ROOT/WEB-INF/classes/
+# Prepare app structure in ROOT
+RUN mkdir -p /usr/local/tomcat/webapps/ROOT/WEB-INF/classes && \
+    cp -r WEB-INF/classes/* /usr/local/tomcat/webapps/ROOT/WEB-INF/classes/
 
 # Copy JSP and web.xml
 COPY index.jsp /usr/local/tomcat/webapps/ROOT/
