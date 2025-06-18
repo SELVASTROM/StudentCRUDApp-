@@ -1,0 +1,9 @@
+    services:
+  - type: web
+    name: student-crud-app
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    buildCommand: ""
+    startCommand: ""
+    autoDeploy: true
