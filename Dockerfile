@@ -9,8 +9,7 @@ RUN mkdir -p /usr/src/app/WEB-INF/classes
 RUN javac -cp /usr/local/tomcat/lib/servlet-api.jar -d WEB-INF/classes src/com/example/*.java
 
 # Copy web files
-COPY student-crud/ /usr/local/tomcat/webapps/ROOT/
-COPY view-students/ /usr/local/tomcat/webapps/ROOT/
+COPY index/ /usr/local/tomcat/webapps/ROOT/
 COPY WEB-INF/web.xml /usr/local/tomcat/webapps/ROOT/WEB-INF/
 
 EXPOSE 8080
